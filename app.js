@@ -43,7 +43,7 @@ const newRole = async (key) => {
 const renderHTML = async () => {
    const HTML = render(employees);
    try {
-      fs.writeFile(outputPath, HTML);
+      fs.writeFileSync(outputPath, HTML);
    } catch (error){
       console.log(error.message);
    }
