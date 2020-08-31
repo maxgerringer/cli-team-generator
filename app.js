@@ -1,6 +1,7 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const assignRoles = require("./lib/assignRoles")
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -11,6 +12,46 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 const employees = [];
+const Constructors = {
+   Manager,
+   Engineer,
+   Intern,
+};
+
+const init = () => {
+   addEmployee("Manager");
+};
+
+const addEmployee = async (key) => {
+   const res = await inquirer.prompt(assignRoles[key]);
+   const emp = new Constructors[key](
+      res.name,
+      res.id,
+      res.email,
+      res.uniqueParam,
+   );
+   employees.push(emp);
+   newRole();
+};
+
+const newRole = async (key) => {
+   const { role } = await inquirer.prompt(assignRoles.addRole);
+   if(role === "Render") return renderHTML();
+   addEmployee(role);
+};
+
+const renderHTML = async () => {
+   const HTML = render(employees);
+   try {
+      fs.writeFile(outputPath, HTML);
+   } catch (error){
+      console.log(error.message);
+   }
+};
+
+init();
+
+
 
 
 // Write code to use inquirer to gather information about the development team members,
