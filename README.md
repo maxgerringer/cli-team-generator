@@ -4,7 +4,7 @@
 
   ## Description
 
-  Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. Since testing is a key piece in making code maintainable, all unit tests pass and are included in this repository.
+  This application is a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. Begin by entering the Manager information and  Since testing is a key piece in making code maintainable, all unit tests pass and are included in this repository.
 
   ## Table of Contents
 
@@ -30,6 +30,7 @@
 
   ## Usage
 
+  Begin by entering the Manager information, and then add any number of Engineers and Interns. Complete your roster and render the page by choosing "Render" at the appropriate prompt.
   Execute the application with this command: 
 
              node app.js
