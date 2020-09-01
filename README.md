@@ -62,4 +62,5 @@
   ## Demo
 
   ![Demo Gif](./assets/images/team-in-action.gif)
+  ![Final Render Image](./assets/images/teamfinal.png)
 
